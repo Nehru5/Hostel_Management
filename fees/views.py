@@ -62,3 +62,21 @@ def student_fees(request):
 
     fees = Fee.objects.filter(student=student)
     return render(request, 'student_fees.html', {'fees': fees})
+
+
+from django.shortcuts import redirect
+from .models import Fee
+from django.shortcuts import redirect
+from .models import Fee
+from django.utils import timezone
+
+
+def pay_fee(request,id):
+
+    fee = Fee.objects.get(id=id)
+
+    fee.status = "Paid"
+    fee.payment_date = timezone.now()   # ← Add this line
+    fee.save()
+
+    return redirect("student_fees")

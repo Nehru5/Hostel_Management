@@ -104,6 +104,17 @@ tr:hover {
         padding: 6px 10px;
     }
 }
+.pay-btn{
+background:#1E90FF;
+color:white;
+padding:6px 12px;
+text-decoration:none;
+border-radius:6px;
+}
+
+.pay-btn:hover{
+background:#00BFFF;
+}
 </style>
 </head>
 <body>
@@ -111,10 +122,10 @@ tr:hover {
 <!-- Navbar -->
 <div class="navbar">
     <a href="/student-dashboard/">Dashboard</a>
-    <a href="/student-room/">My Room</a>
+    <a href="{% url 'student_room' %}">My Room</a>
     <a href="/fees/student-fees/">My Fees</a>
     <a href="/complaints/add/">Complaint</a>
-    <a href="/notices/view-notices/">Notice</a>
+    <a href="{% url 'view_notice' %}">Notice</a>
     <a href="{% url 'student_logout' %}">Logout</a>
 </div>
 
@@ -125,16 +136,25 @@ tr:hover {
         <tr>
             <th>Month</th>
             <th>Amount</th>
-            <th>Status</th>
+            
             <th>Date</th>
+            <th>Action</th>
         </tr>
 
         {% for fee in fees %}
         <tr>
             <td>{{fee.month}}</td>
             <td>{{fee.amount}}</td>
-            <td>{{fee.status}}</td>
-            <td>{{fee.date}}</td>
+        
+            <td>{{fee.payment_date}}</td>
+            <td>
+{% if fee.status == "Pending" %}
+<span style="color:red;">Pending</span>
+<a href="/fees/pay/{{fee.id}}/" class="pay-btn">Pay</a>
+{% else %}
+<span style="color:green;">Paid</span>
+{% endif %}
+</td>
         </tr>
         {% endfor %}
     </table>

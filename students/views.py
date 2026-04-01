@@ -174,3 +174,16 @@ def student_notices(request):
         "notices": notices
     }
     return render(request, "student_notices.html", context)
+
+
+
+def student_room(request):
+
+    student_id = request.session.get('student_id')
+
+    if not student_id:
+        return redirect('student_login')
+
+    student = Student.objects.get(id=student_id)
+
+    return render(request, "student_room.html", {"student": student})

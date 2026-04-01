@@ -12,5 +12,6 @@ path('dashboard/', views.student_dashboard, name="student_dashboard"),
 path('student_logout/', views.student_logout, name="student_logout"),
 path('notices/', views.student_notices, name="student_notices"),
 path('vacant-students/', views.vacant_students),
+path('student-room/', views.student_room, name="student_room"),
 
 ]
