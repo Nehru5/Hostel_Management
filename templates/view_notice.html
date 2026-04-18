@@ -124,7 +124,7 @@ body {
 <div class="container">
 {% for notice in notices %}
 <div class="notice">
-    <a class="delete" href="/notice/delete/{{notice.id}}/">Delete</a>
+    <a class="delete" href="{% url 'delete_notice' notice.id %}">Delete</a>
     <h3>{{notice.title}}</h3>
     <p>{{notice.description}}</p>
     <small>{{notice.date}}</small>

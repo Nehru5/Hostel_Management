@@ -113,19 +113,18 @@ body {
 
 <!-- Navbar -->
 <div class="navbar">
-    <a href="/dashboard/">Dashboard</a>
+    <a href="{% url 'admin_dashboard' %}">Dashboard</a>
     <a href="/rooms/add-room/">Add Room</a>
     <a href="/rooms/view-rooms/">View Rooms</a>
     <a href="/students/view-students/">Students</a>
     <a href="/rooms/assign-room/">Assign Room</a>
-    <!-- <a href="/rooms/vacant-students/">Vacant Students</a> -->
     <a href="/fees/add-fee/">Add Fees</a>
     <a href="/fees/view-fees/">View Fees</a>
     <a href="/complaints/view/">View Complaints</a>
-    <a href="/notice/add/">Add Notice</a>
-    <a href="/notice/view/">Notice</a>
-    <!-- <a href="/add-warden/">Add Warden</a> -->
-    <!-- <a href="/view-wardens/">View Wardens</a> -->
+
+    <a href="{% url 'add_notice' %}">Add Notice</a>
+    <a href="{% url 'view_notice' %}">Notice</a>
+
     <a href="/admin-logout/">Logout</a>
 </div>
 

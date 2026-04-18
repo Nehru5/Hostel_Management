@@ -147,15 +147,15 @@ a:hover {
 <td>{{room.available_beds}}</td>
 <td>{{room.rent}}</td>
 <td><img src="{{room.room_image.url}}" alt="Room Image"></td>
-<td><a href="/rooms/room-members/{{room.id}}/">View</a></td>
-<td><a href="/delete-room/{{room.id}}/">Delete</a></td>
+<td><a href="{% url 'room_members' room.id %}">View</a></td>
+<td><a href="{% url 'delete_room' room.id %}">Delete</a></td>
 </tr>
 {% endfor %}
 </table>
 
 <!-- Assign Room Link -->
 <div class="center-link">
-    <a href="/rooms/assign-room/">Assign Room</a>
+    <a href="{% url 'assign_room' %}">Assign Room</a>
 </div>
 
 </body>
